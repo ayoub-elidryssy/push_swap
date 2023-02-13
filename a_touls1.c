@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 10:12:12 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 08:20:05 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/13 08:12:23 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,25 @@ void	add_back(t_arg **arg1, t_arg *new1)
 void	fill_stack(t_var *var)
 {
 	t_arg	*arg1;
+	t_stack	*sta1;
+	t_stack	*sta2;
 
 	arg1 = var->arg;
 	while (arg1)
 	{
 		add_stack(&var->stack_a, new_stack(str_to_int(arg1->str)));
 		arg1 = arg1->next;
+	}
+	sta1 = var->stack_a;
+	while (sta1)
+	{
+		sta2 = sta1->next;
+		while (sta2)
+		{
+			if (sta1->val == sta2->val)
+				print_str("Error\nduplicate number\n");
+			sta2 = sta2->next;
+		}
+		sta1 = sta1->next;
 	}
 }

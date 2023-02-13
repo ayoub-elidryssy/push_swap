@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 09:30:05 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 15:50:20 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/13 07:50:22 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	newlin_check(char *d, char *s, int a)
 		a = a_lent(d) - 1;
 		if (d[a] && d[a] == '\n')
 			a--;
+		if (a == -1 || d[a] == '\n')
+			return (0);
 		while (a > 0 && d[a - 1] != '\n')
 			a--;
 		if (d[a] && d[a] != 'r' && d[a] != 's' && d[a] != 'p')

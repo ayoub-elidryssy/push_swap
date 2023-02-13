@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:55:32 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 16:09:15 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:27:56 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	read_instructions(t_var *var, int a, int b)
 			if (a_comp_str(var->p[a], var->fun[b]))
 				do_instruction(var, b);
 	}
-	return (is_sorting_b(var->stack_a, 0));
+	return (is_sorting_b(var->stack_a, 0) && !var->stack_b);
 }
 
 int	main(int ac, char **av)
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	t_var	var;
 
 	if (!av[1])
-		print_str_b("Error\nno argument\n");
+		exit(0);
 	print_error_b(get_arg_b(&var, av + 1, -1, ac));
 	fill_stack_b(&var);
 	if (read_instructions(&var, -1, -1) == 1)

@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:33:32 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 16:09:47 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:46:00 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_str(char *s)
 
 long	str_to_int(char *str)
 {
-	long	res;
+	double	res;
 	int		s;
 
 	s = 1;

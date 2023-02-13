@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:27:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 16:09:24 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:41:03 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	a_range(t_var *var, int max)
 
 	x = 0;
 	if (max >= 20 && max <= 100)
-		var->x = 20;
+		var->x = 32;
 	if (max > 100)
 		var->x = 80;
 	if (max > 600)
@@ -87,14 +87,17 @@ void	sort_stack(t_var *var, char **av, int max)
 	print_error(get_arg(var, av + 1, -1, 0));
 	fill_stack(var);
 	a_ranking_stacks(var, var->stack_a, 0, 0);
-	max = num_of_stacks(var, 'a');
-	if (max >= 20)
+	if (!is_sorting(var->stack_a, 0))
 	{
-		push_range(var, max);
-		rev_push_a1(var, var->stack_b, max - 1);
+		max = num_of_stacks(var, 'a');
+		if (max >= 20)
+		{
+			push_range(var, max);
+			rev_push_a1(var, var->stack_b, max - 1);
+		}
+		else
+			rev_push_a(var, var->stack_b, 0, 0);
 	}
-	else
-		rev_push_a(var, var->stack_b, 0, 0);
 }
 
 int	main(int ac, char **av)

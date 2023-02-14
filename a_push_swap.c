@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:27:20 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/13 13:41:03 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/14 08:59:07 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,8 @@ int	main(int ac, char **av)
 {
 	t_var	var;
 
-	sort_stack(&var, av, ac);
+	if (av[1])
+		sort_stack(&var, av, ac);
+	else
+		print_str("Error\nno argument\n");
 }

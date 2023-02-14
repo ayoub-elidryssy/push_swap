@@ -6,7 +6,7 @@
 /*   By: aelidrys <aelidrys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 12:04:02 by aelidrys          #+#    #+#             */
-/*   Updated: 2023/02/12 08:30:11 by aelidrys         ###   ########.fr       */
+/*   Updated: 2023/02/14 08:57:24 by aelidrys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ int	get_arg(t_var *var, char **av, int x, int y)
 	while (av[++y])
 	{
 		s = spl(av[y], ' ');
+		if (s && !*s)
+			print_str("Error\nempty string\n");
 		x = -1;
 		while (s[++x])
 			add_back(&var->arg, new_node(s[x]));
